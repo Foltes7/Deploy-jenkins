@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --base-href=/admin/ --serve-path=/admin/",
     "build": "ng build",
+    "build-prod": "ng build --prod --base-href=/admin/ --deploy-url /admin/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
