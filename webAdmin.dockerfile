@@ -9,7 +9,7 @@ COPY Admin .
 
 # run npm install
 RUN npm install &&\
-    npm run build
+    npm run build-prod
 
 # nginx base image
 FROM nginx:alpine
