@@ -7,8 +7,7 @@ WORKDIR /src
 COPY WebApplication1/ WebApplication1/
 
 WORKDIR /src/WebApplication1/WebApplication1
-RUN dotnet restore "WebApplication1.csproj"
-RUN dotnet build "WebApplication1.csproj" -c Release -o app/build
+RUN dotnet restore
 RUN dotnet publish "WebApplication1.csproj" -c Release -o app/output
 
 FROM base AS final
