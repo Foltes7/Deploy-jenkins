@@ -1,1 +1,18 @@
+version: "3.5"
+services:
+  backend:
+    container_name: proj_server
+    image: davydq/proj-server
 
+  nginx:
+    container_name: proj_static
+    image: davydq/proj-static
+    links:
+      - backend
+    depends_on:
+      - "backend"
+    ports:
+      - "80:80"
+    environment:
+      FQDN: "localhost"
+      BACKEND: "backend:5000"

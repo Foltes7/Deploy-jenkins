@@ -13,5 +13,8 @@ RUN dotnet publish "WebApplication1.csproj" -c Release -o app/output
 FROM base AS final
 COPY --from=build /src/WebApplication1/WebApplication1/app/output /app/
 WORKDIR /app
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet WebApplication1.dll
+# CMD ASPNETCORE_URLS=http://*:$PORT dotnet WebApplication1.dll
 # ENTRYPOINT ["dotnet", "WebApplication1.dll"]
+
+EXPOSE 5000
+CMD exec ./WebApplication1 --urls http://+:5000
