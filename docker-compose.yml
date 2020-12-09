@@ -1,11 +1,14 @@
 version: "3.4"
 services:
   backend:
-    container_name: proj_server
+    container_name: proj-server
     image: davydq/proj-server
-  proxy:
-    image: nginx:latest
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+  nginx:
+    container_name: proj-static
+    image: davydq/proj-static
+    links:
+      - backend
+    depends_on:
+      - "backend"
     ports:
-      - 80:80
+      - "80:80"
