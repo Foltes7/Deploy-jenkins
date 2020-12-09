@@ -20,7 +20,7 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddDirectoryBrowser();
 
             services.Configure<ForwardedHeadersOptions>(options =>
             {
@@ -52,6 +52,7 @@ namespace WebApplication1
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
